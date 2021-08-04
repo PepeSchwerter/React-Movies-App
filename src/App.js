@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from "./components/Sidebar";
+import Main from "./components/Main";
+import { useState } from "react";
+import { fetchMovies } from './api/';
+import Search from "./components/Search";
+import MoviesGrid from "./components/MoviesGrid";
+import { MoviesProvider } from "./context/MoviesContext"
 
 function App() {
+  const [searchedMovies, setSearchedMovies] = useState({});
+
+  const handleSearch = async (search) => {
+    let movies = await fetchMovies(search);
+    // if (movies.length > 100) {
+    //   movies = movies.slice(0,100)
+    // }
+    setSearchedMovies(movies);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MoviesProvider>
+      <div className="App">
+        <Sidebar/>
+        <div className="main">
+          <Search handleSearch={handleSearch}/>
+          <MoviesGrid movies={searchedMovies.Search ? searchedMovies.Search : []}/>
+        </div>
+      </div>
+    </MoviesProvider>
   );
 }
 

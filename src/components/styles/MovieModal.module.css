@@ -1,0 +1,97 @@
+.movieModalBackdrop {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.527);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.movieModal {
+    width: 70%;
+    height: 75vh;
+    cursor: auto;
+    display: flex;
+    background: #1e2446;
+    overflow: hidden;
+}
+
+.movieModalPoster {
+    width: 35%;
+    object-fit: cover;
+    -webkit-box-shadow: 9px 0px 44px -12px rgba(0,0,0,0.73);
+    -moz-box-shadow: 9px 0px 44px -12px rgba(0,0,0,0.73);
+    box-shadow: 9px 0px 44px -12px rgba(0,0,0,0.73);
+}
+
+.movieModalInfo {
+    padding: 4rem;
+    width: 65%;
+}
+
+.movieModalHeader {
+    display: flex;
+    align-items: center;
+    font-size: 4.3rem;
+}
+
+.movieModalHeader h1{
+    font-size: 3.6rem;
+    font-weight: 600;
+    width: 90%;
+}
+
+.movieModalHeaderIcon {
+    cursor: pointer;
+}
+
+.movieModalDetails {
+    color: rgb(165, 164, 164);
+    font-weight: 200;
+    letter-spacing: 0.2rem;
+}
+
+.movieModalGenres {
+    margin-top: 2rem;
+}
+
+.movieModalGenre {
+    background-color: rgba(255, 255, 255, 0.116);
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border-radius: 200px;
+    border: solid rgba(255, 255, 255, 0.445) 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.7rem;
+}
+
+.movieModalGenre:hover {
+    transform: scale(1.05);
+    transition: all .2s;
+}
+
+.movieModalPlot {
+    margin-top: 5rem;
+}
+
+.movieModalPeople {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    color: rgb(165, 164, 164);
+    font-size: 1.8rem;
+    font-weight: 200;
+}
+
+.movieModalRatings {
+    margin-top: 5rem;
+    display: flex;
+    gap: 5rem;
+    text-align: center;
+}   

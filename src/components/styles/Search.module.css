@@ -1,0 +1,46 @@
+.search {
+    width: 40%;
+}
+
+.searchForm {
+    position: relative;
+    display: flex;
+}
+
+.searchBar {
+    font-family: inherit;
+    font-size: 2.5rem;
+    padding: 1.5rem 3rem;
+    padding-left: 8rem;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 200px;
+    width: 100%;
+}
+
+.searchBar:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.096);
+    transition: all 0.5s;
+}
+
+.searchButton {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    padding-left: 3rem;
+    cursor: pointer;
+}
+
+
+.searchButton:hover .searchButtonIcon {
+    transform: scale(1.2);
+    transition: all .2s;
+}
+

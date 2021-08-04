@@ -1,13 +1,131 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* COOLORS */
+:root {
+  --base: #161B33;
+  --font: rgb(230, 230, 230);
+  --light-base: #0f3748ff;
+  --red: #de3f57ff;
+  --yellow: #f7ea78ff;
+  --blue: #6fbfe2ff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*----------------*/
+/*      BASE      */
+/*----------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 55%; 
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 2rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--font);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+}
+
+.main {
+  height: 100vh;
+  background: rgb(36,49,103);
+  background: linear-gradient(180deg, rgba(36,49,103,0.97) 0%, rgba(22,27,51,0.97) 100%);
+  padding: 5rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.radialProgressBar {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #ddd;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.progress49{
+  background-image: linear-gradient(calc(90deg - 360deg*var(--val)/100), #ddd 50%, transparent 50%), linear-gradient(90deg, rgb(51, 153, 197) 50%, #ddd 50%);
+}
+
+.progress51 {
+  background-image: linear-gradient(90deg, rgb(51, 153, 197) 50%, transparent 50%), linear-gradient(calc(270deg - 360deg*var(--val)/100), rgb(51, 153, 197) 50%, #ddd 50%);
+}
+
+.radialProgressBar .overlay {
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  margin: auto;
+  background-color: #1e2446;
+  text-align: center;
+  padding-top: 30%;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tooltipItem {
+  display: flex;
+}
+
+.tooltip:hover .tooltipItem{
+  transform: scale(1.25);
+  color: rgb(51, 153, 197);
+  transition: all .2s;
+}
+
+.tooltip:active .tooltipItem{
+  transform: scale(1);
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  display: inline-block;
+  z-index: 100;
+  top: 100%;
+  transform: translateX(-50%);
+  left: 50%;
+  font-size: 1.6rem;  
+  background-color: rgba(255, 255, 255, 0.205);
+  padding: .8rem;
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
 }
