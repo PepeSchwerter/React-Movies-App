@@ -20,7 +20,6 @@ export const MoviesProvider = ({ children }) => {
     const isInWatchList = (imdbID) => {
         if (watchList !== null) {
             for (let i = 0; i < watchList.length; i++) {
-                console.log(watchList[i].imdbID)
                 if(watchList[i].imdbID === imdbID){
                     return true;
                 }   

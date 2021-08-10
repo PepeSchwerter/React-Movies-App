@@ -26,7 +26,10 @@
     font-weight: 600;
 }
 
-.movieCardYear {
+.movieCardBottom {
     font-weight: 200;
     margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

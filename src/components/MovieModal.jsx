@@ -8,7 +8,7 @@ import { MoviesContext } from '../context/MoviesContext';
 
 const MovieModal = ({ selectedMovie, setSelectedMovie }) => {
     const {toggleMovie, isInWatchList} = useContext(MoviesContext);
-    const movie = {imdbID:selectedMovie.imdbID, title:selectedMovie.Title, poster: selectedMovie.Poster};
+    const movie = {imdbID:selectedMovie.imdbID, Title:selectedMovie.Title, Poster: selectedMovie.Poster, Year:selectedMovie.Year};
     const handleClick = (e) => {
         if (e.target.classList.contains(styles.movieModalBackdrop)) {
           setSelectedMovie(null);

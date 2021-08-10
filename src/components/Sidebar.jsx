@@ -1,7 +1,11 @@
 import styles from './styles/Sidebar.module.css';
 import { BiMovie, BiShow, BiListCheck } from "react-icons/bi";
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
+    const location = useLocation().pathname;
+    const linkStyle = styles.nav__item;
+    const activeLinkStyle = [styles.nav__item, styles.nav__item__selected].join(" "); 
     return (
         <header className={styles.sidebar}>
             <div className={styles.user}>
@@ -12,17 +16,23 @@ const Sidebar = () => {
             </div>
             <nav className={styles.nav}>
                 <ul className={styles.nav__list}>
-                    <li className={[styles.nav__item, styles.nav__item__selected].join(" ")}>
-                        <BiMovie className={styles.nav__icon}/>
-                        <span>Descubre</span>
+                    <li>
+                        <Link className={(location == "/" ? activeLinkStyle : linkStyle)} to="/">
+                            <BiMovie className={styles.nav__icon}/>
+                            <span>Descubre</span>
+                        </Link>
                     </li>
-                    <li className={styles.nav__item}>
-                        <BiShow className={styles.nav__icon}/>
-                        <span>Por ver</span>
+                    <li>
+                        <Link className={(location == "/watchlist" ? activeLinkStyle : linkStyle)} to="/watchlist">
+                            <BiShow className={styles.nav__icon}/>
+                            <span>Por ver</span>
+                        </Link>
                     </li>
-                    <li className={styles.nav__item}>
-                        <BiListCheck className={styles.nav__icon}/>
-                        <span>Mis listas</span>
+                    <li>
+                        <Link className={(location == "/lists" ? activeLinkStyle : linkStyle)} to="/lists">
+                            <BiListCheck className={styles.nav__icon}/>
+                            <span>Mis listas</span>
+                        </Link>
                     </li>
                 </ul>
             </nav>

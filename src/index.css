@@ -45,7 +45,7 @@ a {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
 }
 
 .App {
@@ -54,12 +54,17 @@ h1 {
 }
 
 .main {
-  height: 100vh;
+  min-height: 100vh;
   background: rgb(36,49,103);
   background: linear-gradient(180deg, rgba(36,49,103,0.97) 0%, rgba(22,27,51,0.97) 100%);
   padding: 5rem;
-  overflow: hidden;
-  width: 100%;
+  width: 88%;
+  margin-left: 12%;
+}
+
+.searchWrap {
+  display: flex;
+  justify-content: space-between;
 }
 
 .radialProgressBar {
@@ -128,4 +133,9 @@ h1 {
 
 .tooltip:hover .tooltiptext{
   visibility: visible;
+}
+
+
+::-webkit-scrollbar {
+  width: 0;
 }

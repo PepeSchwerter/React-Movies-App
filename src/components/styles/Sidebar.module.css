@@ -9,13 +9,13 @@
 
 .sidebar {
     background-color: var(--base);
-    height: 100px;
     height: 100vh;
     -webkit-box-shadow: 9px 0px 44px -12px rgba(0,0,0,0.73);
     -moz-box-shadow: 9px 0px 44px -12px rgba(0,0,0,0.73);
     box-shadow: 9px 0px 44px -12px rgba(0,0,0,0.73);
-    position: relative;
+    position: fixed;
     z-index: 10;
+    width: 12%;
 }
 
 .user {
@@ -64,6 +64,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    transition: all .2s;
 }
 
 .nav__item:hover{

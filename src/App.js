@@ -5,6 +5,7 @@ import { fetchMovies } from './api/';
 import Search from "./components/Search";
 import MoviesGrid from "./components/MoviesGrid";
 import { MoviesProvider } from "./context/MoviesContext"
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   const [searchedMovies, setSearchedMovies] = useState({});
@@ -20,11 +21,23 @@ function App() {
   return (
     <MoviesProvider>
       <div className="App">
+      <Router>
         <Sidebar/>
-        <div className="main">
-          <Search handleSearch={handleSearch}/>
-          <MoviesGrid movies={searchedMovies.Search ? searchedMovies.Search : []}/>
-        </div>
+          <div className="main">
+            <Switch>
+              <Route exact path="/">
+                <div className="searchWrap">
+                  <h1>Descubre</h1>
+                  <Search handleSearch={handleSearch}/>
+                </div>
+                <MoviesGrid movies={searchedMovies.Search ? searchedMovies.Search : []}/>
+              </Route>
+              <Route path="/watchlist">
+                <Main/>
+              </Route>
+            </Switch>
+          </div>
+        </Router>
       </div>
     </MoviesProvider>
   );

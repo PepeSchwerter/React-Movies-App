@@ -1,9 +1,11 @@
 import styles from './styles/Main.module.css'
+import MoviesGrid from './MoviesGrid'
 
-const Main = ({ movies }) => {
+const Main = ({  }) => {
     return (
         <div className={styles.main}>
-            {movies.Search && <h1>{movies.Search[0].Title}</h1>}
+            <h1>Por ver</h1>
+            <MoviesGrid/>
         </div>
     )
 }
