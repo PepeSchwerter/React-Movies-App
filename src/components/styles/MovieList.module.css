@@ -1,0 +1,91 @@
+.movieList {
+    width: 100%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.096);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.movieListIcon {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.movieListDetails {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 20%;
+    justify-content: flex-end;
+}
+
+.movieListDropIcon {
+    font-size: 4rem;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.movieListDropIcon:hover {
+    transform: scale(1.5);
+}
+
+.movieListPosters {
+    display: flex;  
+}
+
+.movieListPosters img, .movieListPoster{
+    width: 8rem;
+    border: 2px solid lightgray;
+}
+
+.movieListPosters img:not(:last-child) {
+    box-shadow: 18px 0px 13px -2px rgba(0,0,0,0.57);
+}
+
+.movieListPosters img:not(:first-child) {
+    margin-left: -4rem;
+}
+
+.movieListPosters img:nth-child(1){
+    z-index: 14;
+}
+.movieListPosters img:nth-child(2){
+    z-index: 13;
+}
+.movieListPosters img:nth-child(3){
+    z-index: 12;
+}
+.movieListPosters img:nth-child(4){
+    z-index: 11;
+}
+.movieListPosters img:nth-child(5){
+    z-index: 10;
+}
+
+.movieListDisplay {
+    width: 100%;
+}
+
+.movieListItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.185);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.movieListItem:hover {
+    transform: scale(1.02);
+}
+
+.movieListItem:last-child {
+    padding-bottom: 2rem;
+}
+
+.movieListItem:first-child {
+    padding-top: 1rem;
+}

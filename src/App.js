@@ -1,5 +1,6 @@
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
+import MovieLists from "./components/MovieLists";
 import { useState } from "react";
 import { fetchMovies } from './api/';
 import Search from "./components/Search";
@@ -34,6 +35,9 @@ function App() {
               </Route>
               <Route path="/watchlist">
                 <Main/>
+              </Route>
+              <Route path="/lists">
+                <MovieLists/>
               </Route>
             </Switch>
           </div>

@@ -87,10 +87,10 @@
     color: rgb(165, 164, 164);
     font-size: 1.8rem;
     font-weight: 200;
+    margin-bottom: 5rem;
 }
 
 .movieModalRatings {
-    margin-top: 5rem;
     display: flex;
     gap: 5rem;
     text-align: center;

@@ -1,5 +1,5 @@
 import styles from './styles/MovieModal.module.css';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { BiShow } from 'react-icons/bi';
 import MovieRatings from './MovieRatings';
@@ -7,12 +7,16 @@ import StarsRating from './StarsRating';
 import { MoviesContext } from '../context/MoviesContext';
 
 const MovieModal = ({ selectedMovie, setSelectedMovie }) => {
-    const {toggleMovie, isInWatchList} = useContext(MoviesContext);
+    const {toggleMovie, isInWatchList, toggleRatedMovie, getMovieRating} = useContext(MoviesContext);
     const movie = {imdbID:selectedMovie.imdbID, Title:selectedMovie.Title, Poster: selectedMovie.Poster, Year:selectedMovie.Year};
+    const rating = getMovieRating(movie.imdbID);
     const handleClick = (e) => {
         if (e.target.classList.contains(styles.movieModalBackdrop)) {
           setSelectedMovie(null);
         }
+    }
+    const setRatedMovie = (rating) => {
+        toggleRatedMovie({...movie, Rating: rating});
     }
     return (
         <motion.div className={styles.movieModalBackdrop} onClick={handleClick} 
@@ -40,7 +44,9 @@ const MovieModal = ({ selectedMovie, setSelectedMovie }) => {
                             <span className={styles.movieModalGenre} >{genre}</span>
                         ))}
                     </div>
-                    <StarsRating/>
+
+                    <StarsRating setRatedMovie={setRatedMovie} userRating={rating}/>
+
                     <div className={styles.movieModalPlot}>
                         <p>
                             {selectedMovie.Plot}

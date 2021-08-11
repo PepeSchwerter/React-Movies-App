@@ -15,7 +15,7 @@ const MovieRatings = ({ movieRatings }) => {
             const value = parseInt(rating.Value.split('/')[0]);
             return {source: rating.Source, value: value} 
         }
-        return {source: "Unknown", value:50}
+        return {source: "Mi valoración", value:rating.Value * 10}
     })
     return (
         <div className={styles.movieModalRatings}>

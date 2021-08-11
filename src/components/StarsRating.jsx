@@ -2,9 +2,18 @@ import { useState } from "react"
 import {FaStar} from "react-icons/fa"
 import styles from './styles/StarsRating.module.css';
 
-const StarsRating = () => {
-    const [rating, setRating] = useState(null);
+const StarsRating = ({ setRatedMovie, userRating }) => {
+    const [rating, setRating] = useState(userRating);
     const [hoverRating, setHoverRating] = useState(null);
+    const handleSetRating = (starValue) => {
+        if (starValue == rating){
+            setRating(null);
+            setRatedMovie(0);
+        } else {
+            setRating(starValue);
+            setRatedMovie(starValue);
+        }
+    } 
     return (
         <div className={styles.StarsRating}>
             {[...Array(10)].map((_,i)=> {
@@ -19,7 +28,7 @@ const StarsRating = () => {
                         />
                     
                     <input value={starValue} type="radio" 
-                        onClick={()=>setRating(starValue)}
+                        onClick={() => handleSetRating(starValue)}
                     />
                 </label>
             )})}
