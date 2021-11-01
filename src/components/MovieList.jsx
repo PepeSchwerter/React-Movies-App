@@ -20,9 +20,11 @@ const MovieList = ({ list }) => {
     }
     const [open, setOpen] = useState(false);
     let posters = [];
-    for (const movie of list.movies) {
-        posters.push(movie.Poster);
-        if (posters.length > 4 ) break;
+    if (list.movies){
+        for (const movie of list.movies) {
+            posters.push(movie.Poster);
+            if (posters.length > 4 ) break;
+        }
     }
     return (
         <>
@@ -36,14 +38,14 @@ const MovieList = ({ list }) => {
                     <h2>{list.name}</h2>
                 </div>
                 <div className={styles.movieListDetails}>
-                    <span>{list.movies.length + " películas"}</span>
+                    <span>{list.movies && list.movies.length + " películas"}</span>
                     {open ? 
                     <IoIosArrowUp className={styles.movieListDropIcon} onClick={() => setOpen(!open)}/> : 
                     <IoIosArrowDown className={styles.movieListDropIcon} onClick={() => setOpen(!open)}/>
                     }
                 </div>
             </div>
-            {open && <motion.ul layout className={styles.movieListDisplay} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            {(open && list.movies)  && <motion.ul layout className={styles.movieListDisplay} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 {list.movies.map((movie) => (
                     <li className={styles.movieListItem} onClick={() => handleSelectedMovie(movie.imdbID)}>
                         <div className={styles.movieListIcon}>

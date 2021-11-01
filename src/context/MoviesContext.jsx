@@ -47,9 +47,11 @@ export const MoviesProvider = ({ children }) => {
     }
 
     const getMovieRating = (imdbID) => {
-        for(const movie of ratedList) {
-            if(movie.imdbID === imdbID) {
-                return movie.Rating;
+        if (ratedList){
+            for(const movie of ratedList) {
+                if(movie.imdbID === imdbID) {
+                    return movie.Rating;
+                }
             }
         }
         return null;
