@@ -1,5 +1,6 @@
 import styles from "./styles/MovieList.module.css"
 import {IoIosArrowDown, IoIosArrowUp, IoIosTrash} from "react-icons/io"
+import { IoMdClose } from "react-icons/io";
 import { useState, useContext } from "react";
 import MovieRatings from "./MovieRatings";
 import MovieModal from "./MovieModal"
@@ -8,10 +9,15 @@ import { motion } from 'framer-motion';
 import { fetchMovie } from '../api';
 
 const MovieList = ({ list }) => {
-    const {toggleRatedMovie} = useContext(MoviesContext);
-    const handleDeleteRating = (e, imdbID) => {
+    const {toggleRatedMovie, toggleMovie, deleteList} = useContext(MoviesContext);
+    const handleDeleteRating = (e, movie, list) => {
         e.stopPropagation();
-        toggleRatedMovie({imdbID, Rating: 0})
+        const imdbID = movie.imdbID;
+        if(list == "Películas reseñadas"){
+            toggleRatedMovie({imdbID, Rating: 0});
+        } 
+        else {
+            toggleMovie(movie, list);}
     }
     const [selectedMovie, setSelectedMovie] = useState(null)
     const handleSelectedMovie = async (imdbID) => {
@@ -28,7 +34,7 @@ const MovieList = ({ list }) => {
     }
     return (
         <>
-            <div className={styles.movieList}>
+            <div style={open ? {"background-color": "rgba(255, 255, 255, 0.296)"} : null} className={styles.movieList}>
                 <div className={styles.movieListIcon}>
                     <div className={styles.movieListPosters}>
                         {posters.map((poster) => (
@@ -43,6 +49,8 @@ const MovieList = ({ list }) => {
                     <IoIosArrowUp className={styles.movieListDropIcon} onClick={() => setOpen(!open)}/> : 
                     <IoIosArrowDown className={styles.movieListDropIcon} onClick={() => setOpen(!open)}/>
                     }
+                    <IoMdClose style={list.name == "Películas reseñadas" ? {"visibility":"hidden"}:null}
+                    className={styles.movieListDeleteIcon} onClick={() => deleteList(list.name)}/>
                 </div>
             </div>
             {(open && list.movies)  && <motion.ul layout className={styles.movieListDisplay} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -53,8 +61,8 @@ const MovieList = ({ list }) => {
                             <strong style={{"fontSize": "2.5rem"}}>{movie.Title}</strong>
                         </div>
                         <div className={styles.movieListDetails}>
-                            <MovieRatings movieRatings={[{Value: movie.Rating}]}/>
-                            <IoIosTrash className={styles.movieListDropIcon} onClick={(e) => handleDeleteRating(e,movie.imdbID)}/>
+                            {movie.Rating && <MovieRatings movieRatings={[{Value: movie.Rating}]}/>}
+                            <IoIosTrash className={styles.movieListDropIcon} onClick={(e) => handleDeleteRating(e,movie,list.name)}/>
                         </div>
                     </li>
                 ))}

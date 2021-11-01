@@ -8,7 +8,7 @@ const MovieCard = ({ title, year, poster, imdbID , handleSelectedMovie, watchlis
     const {toggleMovie} = useContext(MoviesContext);
     const handleTooltipClick = (e) => {
         e.stopPropagation();
-        toggleMovie({imdbID})
+        toggleMovie({imdbID}, "watchList")
     }
     return (
         <motion.div className={styles.movieCard}  onClick={() => handleSelectedMovie(imdbID)} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

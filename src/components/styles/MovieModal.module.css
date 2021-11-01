@@ -13,8 +13,8 @@
 }
 
 .movieModal {
-    width: 70%;
-    height: 75vh;
+    width: 150rem;
+    height: 80rem;
     cursor: auto;
     display: flex;
     background: #1e2446;
@@ -38,12 +38,13 @@
     display: flex;
     align-items: center;
     font-size: 4.3rem;
+    gap: 3rem;
 }
 
 .movieModalHeader h1{
     font-size: 3.6rem;
     font-weight: 600;
-    width: 90%;
+    width: 80%;
 }
 
 .movieModalHeaderIcon {

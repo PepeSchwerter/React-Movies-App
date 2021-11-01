@@ -8,9 +8,9 @@ import { MoviesContext } from '../context/MoviesContext';
 
 const MoviesGrid = ({ movies }) => {
     let watchFlag = false;
-    const {watchList} = useContext(MoviesContext);
+    const {userLists} = useContext(MoviesContext);
     if(movies === undefined) {
-        movies = watchList;
+        if(userLists != null) movies = userLists.watchList;
         watchFlag = true;
     }
     const [selectedMovie, setSelectedMovie] = useState(null)

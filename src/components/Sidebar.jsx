@@ -10,7 +10,7 @@ const Sidebar = () => {
         <header className={styles.sidebar}>
             <div className={styles.user}>
                 <div className={styles.user__avatar__container}>
-                    <img src="https://i.pinimg.com/originals/f1/23/05/f1230501d33cb2c6055b2d6ea221a22d.jpg" alt="" className={styles.user__avatar}/>
+                    <img src="https://i.kym-cdn.com/photos/images/newsfeed/001/394/314/c62.jpg" alt="" className={styles.user__avatar}/>
                 </div>
                 <span className={styles.user__name}>Martin Jones</span>
             </div>

@@ -4,7 +4,12 @@
     background-color: rgba(255, 255, 255, 0.096);
     display: flex;
     justify-content: space-between;
-    margin-top: 5rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.movieList:nth-child(2) {
+    margin-top: 6rem;
 }
 
 .movieListIcon {
@@ -21,13 +26,18 @@
     justify-content: flex-end;
 }
 
-.movieListDropIcon {
+.movieListDropIcon, .movieListDeleteIcon {
     font-size: 4rem;
     cursor: pointer;
     transition: all .2s;
+    margin-right: 2rem;
 }
 
-.movieListDropIcon:hover {
+.movieListDeleteIcon {
+    font-size: 2rem;
+}
+
+.movieListDropIcon:hover, .movieListDeleteIcon:hover {
     transform: scale(1.5);
 }
 
@@ -70,12 +80,15 @@
 
 .movieListItem {
     display: flex;
+    margin-left: 2rem;
+    margin-right: 1rem;
     align-items: center;
     justify-content: space-between;
     padding: .5rem 2rem;
     background-color: rgba(0, 0, 0, 0.185);
     cursor: pointer;
     transition: all .2s;
+    border-left: 1rem solid rgb(51, 153, 197);
 }
 
 .movieListItem:hover {

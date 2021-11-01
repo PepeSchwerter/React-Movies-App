@@ -1,13 +1,18 @@
 import styles from './styles/MovieModal.module.css';
+import {useState} from "react";
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { BiShow } from 'react-icons/bi';
+import {BiListPlus} from 'react-icons/bi';
 import MovieRatings from './MovieRatings';
+import ListsSelection from './ListsSelection';
 import StarsRating from './StarsRating';
 import { MoviesContext } from '../context/MoviesContext';
 
 const MovieModal = ({ selectedMovie, setSelectedMovie }) => {
-    const {toggleMovie, isInWatchList, toggleRatedMovie, getMovieRating} = useContext(MoviesContext);
+    const [addToList, setAddToList] = useState(false);
+
+    const {toggleMovie, isInList, toggleRatedMovie, getMovieRating} = useContext(MoviesContext);
     const movie = {imdbID:selectedMovie.imdbID, Title:selectedMovie.Title, Poster: selectedMovie.Poster, Year:selectedMovie.Year};
     const rating = getMovieRating(movie.imdbID);
     const handleClick = (e) => {
@@ -29,11 +34,17 @@ const MovieModal = ({ selectedMovie, setSelectedMovie }) => {
                     <div className={styles.movieModalHeader}>
                         <h1>{selectedMovie.Title}</h1>
                         <div className="tooltip">
-                            <div className="tooltipItem" onClick={() => toggleMovie(movie)} 
-                            style={isInWatchList(selectedMovie.imdbID) ? {"color":"rgb(51, 153, 197)"} : null}>
+                            <div className="tooltipItem" onClick={() => toggleMovie(movie, "watchList")} 
+                            style={isInList(selectedMovie.imdbID, "watchList") ? {"color":"rgb(51, 153, 197)"} : null}>
                                 <BiShow className={styles.movieModalHeaderIcon}/>
                             </div>  
-                            <span className="tooltiptext">{isInWatchList(selectedMovie.imdbID) ? "Quitar de Por ver" : "Agregar a Por ver"}</span>
+                            <span className="tooltiptext">{isInList(selectedMovie.imdbID, "watchList") ? "Quitar de Por ver" : "Agregar a Por ver"}</span>
+                        </div>
+                        <div className="tooltip">
+                            <div className="tooltipItem" onClick={() => setAddToList(true)}>
+                                <BiListPlus className={styles.movieModalHeaderIcon}/>
+                            </div>  
+                            <span className="tooltiptext">Agregar a Lista</span>
                         </div>
                     </div>
                     <span className={styles.movieModalDetails}>
@@ -60,6 +71,7 @@ const MovieModal = ({ selectedMovie, setSelectedMovie }) => {
                     <MovieRatings movieRatings={selectedMovie.Ratings}/>
                 </div>
             </motion.div>
+            {addToList && <ListsSelection setAddToList={setAddToList} movie={selectedMovie}/>}
         </motion.div>
     )
 }
