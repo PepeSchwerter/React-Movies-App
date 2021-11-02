@@ -34,7 +34,8 @@ const MovieList = ({ list }) => {
     }
     return (
         <>
-            <div style={open ? {"background-color": "rgba(255, 255, 255, 0.296)"} : null} className={styles.movieList}>
+            <div style={open ? {"background-color": "rgba(255, 255, 255, 0.296)"} : null} className={styles.movieList}
+            onClick={() => setOpen(!open)}>
                 <div className={styles.movieListIcon}>
                     <div className={styles.movieListPosters}>
                         {posters.map((poster) => (

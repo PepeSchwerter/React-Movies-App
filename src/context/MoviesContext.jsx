@@ -6,7 +6,7 @@ export const MoviesProvider = ({ children }) => {
     // const [watchList, setWatchList] = useState(JSON.parse(localStorage.getItem("watchList")));
     const parseUserLists = () => {
         const list = JSON.parse(localStorage.getItem("userLists"));
-        if (list == null) return {watchList : [], xd : []};
+        if (list == null) return {watchList : []};
         return list;
     }
     const [ratedList, setRatedList] = useState(JSON.parse(localStorage.getItem("ratedList")));
