@@ -7,7 +7,7 @@ Written from scratch in React
 ![screenshot](https://i.ibb.co/bK2XHVN/ss1.png "Logo Title Text 1")
 
 ## Features
-------
+
 * Functional Components with React Hooks.
 * Context API for state management.
 * CSS Modules.
@@ -21,6 +21,6 @@ Written from scratch in React
     * React-Icons
 
 ## To do
-------
+
 * Responsive Design
 * Get more than 10 movies per search with pagination.
